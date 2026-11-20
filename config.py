@@ -20,3 +20,11 @@ SPECS = {
         "filename": "24501-ie0.zip",
     },
 }
+
+# Chunking 
+RELEASE = "Rel-18"
+CHUNKS_PATH = PROCESSED_DIR / "chunks.jsonl"
+
+CHUNK_MAX_WORDS = 250
+CHUNK_OVERLAP_WORDS = 40
+EXCLUDED_TITLES = {"Foreword", "References"}
