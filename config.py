@@ -28,3 +28,11 @@ CHUNKS_PATH = PROCESSED_DIR / "chunks.jsonl"
 CHUNK_MAX_WORDS = 250
 CHUNK_OVERLAP_WORDS = 40
 EXCLUDED_TITLES = {"Foreword", "References"}
+
+# Groq OpenAI-compatible API.
+GROQ_BASE_URL = "https://api.groq.com/openai/v1"
+GROQ_MODEL = "qwen/qwen3.8-27b"
+
+EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
+FAISS_DIR = ROOT / "storage" / "faiss"
+DATABASE_PATH = ROOT / "data" / "conversations.db"

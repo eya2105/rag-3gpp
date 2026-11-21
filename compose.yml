@@ -1,0 +1,13 @@
+services:
+  rag-3gpp:
+    build:
+      context: .
+    ports:
+      - "8501:8501"
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+      - ./storage:/app/storage
+      - ./huggingface-cache:/app/.cache/huggingface
+    restart: unless-stopped

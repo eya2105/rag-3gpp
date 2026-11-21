@@ -6,3 +6,5 @@ data/raw/
 data/processed/
 storage/
 .DS_Store
+Dockerfile.local
+huggingface-cache/

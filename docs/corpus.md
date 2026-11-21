@@ -23,3 +23,38 @@ Chunking is structural: one chunk per section, sub-split at 250 rendered words
 when a section is longer. Every chunk carries {spec, release, version, section,
 title, breadcrumb}. Tables split by row with header repetition; abbreviation
 lists split between entries.
+
+## Groq query
+
+Set a local `.env` entry before querying the corpus:
+
+```text
+GROQ_API_KEY=your-groq-key
+```
+
+The key may also be stored as `API_KEY`. The default model is
+`qwen/qwen3.8-27b`, and the Groq OpenAI-compatible base URL is
+`https://api.groq.com/openai/v1`. Run:
+
+```powershell
+python scripts/build_index.py
+python scripts/query_specs.py "What is the 5G system architecture?"
+python scripts/query_specs.py "Explain 5GMM cause value" --limit 5
+```
+
+## Streamlit interface
+
+Start the local interface after building the FAISS index:
+
+```powershell
+python scripts/build_index.py
+python -m streamlit run app.py
+```
+
+The key must not be committed to Git or placed directly in source files.
+
+## Chat persistence
+
+Streamlit conversations and messages are stored in `data/conversations.db`.
+Selecting a conversation restores its transcript; submitting a prompt without
+a selection creates a conversation automatically.
